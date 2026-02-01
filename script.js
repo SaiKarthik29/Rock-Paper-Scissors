@@ -12,6 +12,30 @@ const getCompChoice=()=>{
     return compChoices[idx];
 }
 
+// celebrate function
+
+const celebrate = () => {
+    confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+
+    confetti({
+        particleCount: 100,
+        spread: 60,
+        origin: { y: 0.8 }
+    });
+
+    // Animate message
+    msg.classList.add("celebrate");
+
+    setTimeout(() => {
+        msg.classList.remove("celebrate");
+    }, 2000);
+};
+
+
 const playGame=(userChoice)=>{
     console.log("game started");
     const compChoice=getCompChoice();
@@ -32,6 +56,18 @@ const playGame=(userChoice)=>{
     msg.innerText = `You win this round! Your ${userChoice} beats ${compChoice}`;
     msg.style.backgroundColor = "green";
     userScoreMsg.innerText = userScore;
+    if(userScore===10){
+    msg.innerText="🎉 Game Reset! You reached 10 points! User Wins! 🎉";
+    msg.style.backgroundColor="gold";
+
+    celebrate();
+
+    userScore=0;
+    compScore=0;
+    userScoreMsg.innerText=userScore;
+    compScoreMsg.innerText=compScore;
+}
+
 }
 else {
     compScore++;
@@ -39,6 +75,18 @@ else {
     msg.innerText = `Computer wins this round! ${compChoice} beats your ${userChoice}`;
     msg.style.backgroundColor = "red";
     compScoreMsg.innerText = compScore;
+    if(compScore===10){
+    msg.innerText="💻 Game Reset! Computer Wins! 💻";
+    msg.style.backgroundColor="orange";
+
+    celebrate();
+
+    userScore=0;
+    compScore=0;
+    userScoreMsg.innerText=userScore;
+    compScoreMsg.innerText=compScore;
+}
+
 }
 
 }

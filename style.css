@@ -66,3 +66,16 @@ img{
     padding:1rem;
     border-radius: 10px;
 }
+
+.celebrate {
+    animation: pop 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
