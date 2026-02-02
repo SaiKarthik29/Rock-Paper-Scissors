@@ -58,7 +58,7 @@ const playGame=(userChoice)=>{
     userScoreMsg.innerText = userScore;
     if(userScore===10){
     msg.innerText="🎉 Game Reset! You reached 10 points! User Wins! 🎉";
-    msg.style.backgroundColor="gold";
+    msg.style.backgroundColor="green";
 
     celebrate();
 
@@ -77,7 +77,7 @@ else {
     compScoreMsg.innerText = compScore;
     if(compScore===10){
     msg.innerText="💻 Game Reset! Computer Wins! 💻";
-    msg.style.backgroundColor="orange";
+    msg.style.backgroundColor="pink";
 
     celebrate();
 
